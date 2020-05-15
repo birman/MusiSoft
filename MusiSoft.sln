@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Presentation Layer", "1. Presentation Layer", "{CB6B9B90-5D28-4562-890C-8931121F519C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Business Layer", "2. Business Layer", "{138ED168-4AA5-481B-94C3-AED5F1A47342}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Data Access Layer", "3. Data Access Layer", "{58E96276-E245-4579-9FBB-8E4D1BD438AB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Transversal Layer", "4. Transversal Layer", "{AB1E838B-AC7C-41EF-BB7B-C6C8356EEC20}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Helpers Layer", "5. Helpers Layer", "{77110525-EF97-4B7F-9F40-0D875207A856}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6. Testing", "6. Testing", "{48725044-9D49-41AB-9F71-9F5BCEBFE48C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusiSoft.Web", "MusiSoft.Web\MusiSoft.Web.csproj", "{46CF7047-12AD-49F0-BC09-BEAEAE557F20}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{46CF7047-12AD-49F0-BC09-BEAEAE557F20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46CF7047-12AD-49F0-BC09-BEAEAE557F20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46CF7047-12AD-49F0-BC09-BEAEAE557F20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46CF7047-12AD-49F0-BC09-BEAEAE557F20}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{46CF7047-12AD-49F0-BC09-BEAEAE557F20} = {CB6B9B90-5D28-4562-890C-8931121F519C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B811015F-AB5A-422E-98AE-0063D7F91CD2}
+	EndGlobalSection
+EndGlobal
