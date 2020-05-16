@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="83df8053f4884a8187d1f89e36a3e4f7" Name="Diagram1">
+        <EntityTypeShape EntityType="MusiSoftBDModel.Campaigns" Width="1.5" PointX="3.75" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusiSoftBDModel.CampaignsCustomers" Width="1.5" PointX="3.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusiSoftBDModel.Companies" Width="1.5" PointX="6.25" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusiSoftBDModel.Customers" Width="1.5" PointX="0.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusiSoftBDModel.MusicGenres" Width="1.5" PointX="0.5" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusiSoftBDModel.Supports" Width="1.5" PointX="7.875" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusiSoftBDModel.SupportTypes" Width="1.5" PointX="10.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusiSoftBDModel.Users" Width="1.5" PointX="9.5" PointY="0.625" IsExpanded="true" />
+        <AssociationConnector Association="MusiSoftBDModel.FK_Campaigns_Companies" ManuallyRouted="false" />
+        <AssociationConnector Association="MusiSoftBDModel.FK_CampaignsCustomers_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="MusiSoftBDModel.FK_Customers_Companies" ManuallyRouted="false" />
+        <AssociationConnector Association="MusiSoftBDModel.FK_Supports_Companies" ManuallyRouted="false" />
+        <AssociationConnector Association="MusiSoftBDModel.FK_Users_Companies" ManuallyRouted="false" />
+        <AssociationConnector Association="MusiSoftBDModel.FK_Customers_MusicGenres" ManuallyRouted="false" />
+        <AssociationConnector Association="MusiSoftBDModel.FK_Supports_SupportTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="MusiSoftBDModel.FK_MusicGenres_Campaigns" />
+        <AssociationConnector Association="MusiSoftBDModel.FK_CampaignsCustomers_Companies1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
