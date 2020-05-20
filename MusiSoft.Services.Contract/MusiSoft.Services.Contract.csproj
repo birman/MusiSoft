@@ -41,6 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contract\ICampaignService.cs" />
+    <Compile Include="Contract\ICompanyService.cs" />
+    <Compile Include="Contract\ICustomerService.cs" />
+    <Compile Include="Contract\IPQRService.cs" />
+    <Compile Include="Contract\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

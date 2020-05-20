@@ -119,6 +119,7 @@
       <DependentUpon>MusiSoftDbContext.edmx</DependentUpon>
       <LastGenOutput>MusiSoftDbContext.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\MusiSoftDBScript.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -41,7 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Impl\CampaignRepository.cs" />
+    <Compile Include="Impl\CompanyRepository.cs" />
+    <Compile Include="Impl\CustomerRepository.cs" />
+    <Compile Include="Impl\PQRRepository.cs" />
+    <Compile Include="Impl\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MusiSoft.Repositories.Contract\MusiSoft.Repositories.Contract.csproj">
+      <Project>{F102F86F-76E8-478C-9171-57B9C1A57500}</Project>
+      <Name>MusiSoft.Repositories.Contract</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

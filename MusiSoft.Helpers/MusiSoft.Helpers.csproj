@@ -56,5 +56,23 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MusiSoft.Repositories.Contract\MusiSoft.Repositories.Contract.csproj">
+      <Project>{F102F86F-76E8-478C-9171-57B9C1A57500}</Project>
+      <Name>MusiSoft.Repositories.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MusiSoft.Repositories\MusiSoft.Repositories.csproj">
+      <Project>{43899AEA-E4D5-4D35-884C-5DC5A317C249}</Project>
+      <Name>MusiSoft.Repositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MusiSoft.Services.Contract\MusiSoft.Services.Contract.csproj">
+      <Project>{E6E70280-D435-47F0-91A8-C2DA5640B99A}</Project>
+      <Name>MusiSoft.Services.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MusiSoft.Services\MusiSoft.Services.csproj">
+      <Project>{75B88154-2486-49DC-9D28-3D5E7E768D70}</Project>
+      <Name>MusiSoft.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -41,7 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Impl\CampaignService.cs" />
+    <Compile Include="Impl\CompanyService.cs" />
+    <Compile Include="Impl\CustomerService.cs" />
+    <Compile Include="Impl\PQRService.cs" />
+    <Compile Include="Impl\UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MusiSoft.Services.Contract\MusiSoft.Services.Contract.csproj">
+      <Project>{E6E70280-D435-47F0-91A8-C2DA5640B99A}</Project>
+      <Name>MusiSoft.Services.Contract</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
