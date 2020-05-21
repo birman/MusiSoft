@@ -48,5 +48,11 @@
     <Compile Include="Contract\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MusiSoft.Entities\MusiSoft.Entities.csproj">
+      <Project>{E798A850-5401-4E55-AEF7-1DB524D29B84}</Project>
+      <Name>MusiSoft.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

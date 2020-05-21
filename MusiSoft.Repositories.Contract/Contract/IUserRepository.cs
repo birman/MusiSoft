@@ -1,6 +1,6 @@
 ﻿namespace MusiSoft.Repositories.Contract.Contract
 {
-    public interface IUserRepository
+    public interface IUserRepository : IEFBaseRepository
     {
     }
 }

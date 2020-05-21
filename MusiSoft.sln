@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusiSoft.Services", "MusiSo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusiSoft.Repositories", "MusiSoft.Repositories\MusiSoft.Repositories.csproj", "{43899AEA-E4D5-4D35-884C-5DC5A317C249}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusiSoft.Mapper", "MusiSoft.Mapper\MusiSoft.Mapper.csproj", "{4D905A18-2A1C-4280-B777-B8F22DB6325F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{43899AEA-E4D5-4D35-884C-5DC5A317C249}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43899AEA-E4D5-4D35-884C-5DC5A317C249}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43899AEA-E4D5-4D35-884C-5DC5A317C249}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D905A18-2A1C-4280-B777-B8F22DB6325F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D905A18-2A1C-4280-B777-B8F22DB6325F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D905A18-2A1C-4280-B777-B8F22DB6325F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D905A18-2A1C-4280-B777-B8F22DB6325F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,6 +95,7 @@ Global
 		{F102F86F-76E8-478C-9171-57B9C1A57500} = {138ED168-4AA5-481B-94C3-AED5F1A47342}
 		{75B88154-2486-49DC-9D28-3D5E7E768D70} = {138ED168-4AA5-481B-94C3-AED5F1A47342}
 		{43899AEA-E4D5-4D35-884C-5DC5A317C249} = {138ED168-4AA5-481B-94C3-AED5F1A47342}
+		{4D905A18-2A1C-4280-B777-B8F22DB6325F} = {AB1E838B-AC7C-41EF-BB7B-C6C8356EEC20}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B811015F-AB5A-422E-98AE-0063D7F91CD2}

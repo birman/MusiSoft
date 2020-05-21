@@ -1,8 +1,11 @@
-﻿using MusiSoft.Repositories.Contract.Contract;
+﻿using MusiSoft.Data.EF.Context;
+using MusiSoft.Repositories.Base;
+using MusiSoft.Repositories.Contract.Contract;
 using MusiSoft.Repositories.Impl;
 using MusiSoft.Services.Contract.Contract;
 using MusiSoft.Services.Impl;
 using Unity;
+using Unity.Injection;
 
 namespace MusiSoft.Helpers
 {
@@ -35,6 +38,7 @@ namespace MusiSoft.Helpers
 
         private static void RegisterRepositories(IUnityContainer container)
         {
+            container.RegisterType<IEFBaseRepository, EFBaseRepository>();
             container.RegisterType<ICompanyRepository, CompanyRepository>();
             container.RegisterType<ICampaignRepository, CampaignRepository>();
             container.RegisterType<IUserRepository, UserRepository>();
@@ -44,7 +48,7 @@ namespace MusiSoft.Helpers
 
         private static void RegisterApplicationDBContext(IUnityContainer container)
         {
-            //container.RegisterType(typeof(EvaSysDbContext), new InjectionConstructor(MySQLConnectionStringProvider.ConnectionString));
+            container.RegisterType<MusiSoftBDEntities>(new InjectionFactory(x => new MusiSoftBDEntities()));
         }
 
         public static T Resolve<T>()

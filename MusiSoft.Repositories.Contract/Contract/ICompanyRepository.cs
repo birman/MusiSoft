@@ -1,9 +1,7 @@
 ﻿namespace MusiSoft.Repositories.Contract.Contract
 {
-    public interface ICompanyRepository
+    public interface ICompanyRepository: IEFBaseRepository
     {
-        void saveCompany();
 
-        void getCompanies();
     }
 }

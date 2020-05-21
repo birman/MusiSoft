@@ -1,18 +1,14 @@
-﻿using MusiSoft.Repositories.Contract.Contract;
-using System;
+﻿using MusiSoft.Data.EF.Context;
+using MusiSoft.Repositories.Base;
+using MusiSoft.Repositories.Contract.Contract;
 
 namespace MusiSoft.Repositories.Impl
 {
-    public class CompanyRepository : ICompanyRepository
+    public class CompanyRepository : EFBaseRepository, ICompanyRepository
     {
-        public void getCompanies()
+        public CompanyRepository(MusiSoftBDEntities dbContext)
         {
-            throw new NotImplementedException();
-        }
-
-        public void saveCompany()
-        {
-            throw new NotImplementedException();
+            _context = dbContext;
         }
     }
 }

@@ -1,12 +1,16 @@
-﻿using System;
+﻿using MusiSoft.Entities;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MusiSoft.Services.Contract.Contract
 {
     public interface ICompanyService
     {
+        void AddCompany(CompanyViewModel companyViewModel);
+
+        void EditCompany(CompanyViewModel companyViewModel);
+
+        void DeleteCompany(int ompanyId);
+
+        IEnumerable<CompanyViewModel> GetCompanies();
     }
 }

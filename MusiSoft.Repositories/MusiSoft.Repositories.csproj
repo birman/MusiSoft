@@ -31,7 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\EFBaseRepository.cs" />
     <Compile Include="Impl\CampaignRepository.cs" />
     <Compile Include="Impl\CompanyRepository.cs" />
     <Compile Include="Impl\CustomerRepository.cs" />
@@ -49,10 +57,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MusiSoft.Data.EF\MusiSoft.Data.EF.csproj">
+      <Project>{25A56990-5C44-49E1-9F49-016424FC59F2}</Project>
+      <Name>MusiSoft.Data.EF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MusiSoft.Repositories.Contract\MusiSoft.Repositories.Contract.csproj">
       <Project>{F102F86F-76E8-478C-9171-57B9C1A57500}</Project>
       <Name>MusiSoft.Repositories.Contract</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
