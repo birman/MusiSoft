@@ -13,6 +13,8 @@ namespace MusiSoft.API
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+            UnityConfig.RegisterComponents();
+            //config.EnableCors();
             // Configure Web API to use only bearer token authentication.
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
