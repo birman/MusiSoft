@@ -16,26 +16,76 @@ namespace MusiSoft.Services.Impl
             this.campaignRepository = campaignRepository;
         }
 
-        public void AddCampaign(CampaignViewModel campaignViewModel)
+        public bool AddCampaign(CampaignViewModel campaignViewModel)
         {
-            var campaign = campaignViewModel.ModelToEntity();
-            campaignRepository.Add(campaign, true);
+            bool saved = false;
+
+            var _campaign = campaignRepository.GetCampaignById(campaignViewModel.Id);
+
+            if ((_campaign == null))
+            {
+                var campaign = campaignViewModel.ModelToEntity();
+                campaignRepository.Add(campaign, true);
+                saved = true;
+            }
+
+            return saved;
         }
 
-        public void EditCampaign(CampaignViewModel campaignViewModel)
+        public bool DeleteCampaign(int campaignId)
         {
-            var campaign = campaignViewModel.ModelToEntity();
-            campaignRepository.Edit(campaign, true);
+            bool deleted = false;
+
+            var campaign = campaignRepository.GetCampaignById(campaignId);
+
+            if ((campaign != null))
+            {
+                campaignRepository.Delete(campaign, true);
+                deleted = true;
+            }
+
+            return deleted;
         }
 
-        public void DeleteCampaign(int campaignId)
+        public bool EditCampaign(CampaignViewModel campaignViewModel)
         {
-            throw new System.NotImplementedException();
+            bool edited = false;
+
+            var campaign = campaignViewModel.ModelToEntity();
+
+            if ((campaign != null) && (ExistCampaign(campaign.Id)))
+            {
+                campaignRepository.Edit(campaign, true);
+                edited = true;
+            }
+
+            return edited;
         }
 
         public IEnumerable<CampaignViewModel> GetCampaigns()
         {
             return campaignRepository.FindAll<Campaigns>().EntityToModel();
+        }
+
+        public CampaignViewModel GetCampaignById(int campaignId)
+        {
+            var campaign = campaignRepository.GetCampaignById(campaignId);
+
+            return campaign != null ? campaign.EntityToModel() : null;
+        }
+
+        private bool ExistCampaign(int campaignId)
+        {
+            bool existCampaign = false;
+            var campaign = campaignRepository.GetCampaignById(campaignId);
+
+            if (campaign != null)
+            {
+                campaignRepository.Detach(campaign);
+                existCampaign = true;
+            }
+
+            return existCampaign;
         }
     }
 }

@@ -5,12 +5,14 @@ namespace MusiSoft.Services.Contract.Contract
 {
     public interface ICustomerService
     {
-        void AddCustomer(CustomerViewModel customerViewModel);
+        bool AddCustomer(CustomerViewModel customerViewModel);
 
-        void EditCustomer(CustomerViewModel customerViewModel);
+        bool EditCustomer(CustomerViewModel customerViewModel);
 
-        void DeleteCustomer(int customerId);
+        bool DeleteCustomer(int customerId);
 
         IEnumerable<CustomerViewModel> GetCustomers();
+
+        CustomerViewModel GetCustomerById(int customerId);
     }
 }

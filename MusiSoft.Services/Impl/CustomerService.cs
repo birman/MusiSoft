@@ -16,26 +16,76 @@ namespace MusiSoft.Services.Impl
             this.customerRepository = customerRepository;
         }
 
-        public void AddCustomer(CustomerViewModel customerViewModel)
+        public bool AddCustomer(CustomerViewModel customerViewModel)
         {
-            var customer = customerViewModel.ModelToEntity();
-            customerRepository.Add(customer, true);
+            bool saved = false;
+
+            var _customer = customerRepository.GetCustomerById(customerViewModel.Id);
+
+            if ((_customer == null))
+            {
+                var customer = customerViewModel.ModelToEntity();
+                customerRepository.Add(customer, true);
+                saved = true;
+            }
+
+            return saved;
         }
 
-        public void DeleteCustomer(int customerId)
+        public bool DeleteCustomer(int customerId)
         {
-            throw new System.NotImplementedException();
+            bool deleted = false;
+
+            var customer = customerRepository.GetCustomerById(customerId);
+
+            if ((customer != null))
+            {
+                customerRepository.Delete(customer, true);
+                deleted = true;
+            }
+
+            return deleted;
         }
 
-        public void EditCustomer(CustomerViewModel customerViewModel)
+        public bool EditCustomer(CustomerViewModel customerViewModel)
         {
+            bool edited = false;
+
             var customer = customerViewModel.ModelToEntity();
-            customerRepository.Edit(customer, true);
+
+            if ((customer != null) && (ExistCustomer(customer.Id)))
+            {
+                customerRepository.Edit(customer, true);
+                edited = true;
+            }
+
+            return edited;
         }
 
         public IEnumerable<CustomerViewModel> GetCustomers()
         {
             return customerRepository.FindAll<Customers>().EntityToModel();
+        }
+
+        public CustomerViewModel GetCustomerById(int customerId)
+        {
+            var customer = customerRepository.GetCustomerById(customerId);
+
+            return customer != null ? customer.EntityToModel() : null;
+        }
+
+        private bool ExistCustomer(int customerId)
+        {
+            bool existCustomer = false;
+            var customer = customerRepository.GetCustomerById(customerId);
+
+            if (customer != null)
+            {
+                customerRepository.Detach(customer);
+                existCustomer = true;
+            }
+
+            return existCustomer;
         }
     }
 }

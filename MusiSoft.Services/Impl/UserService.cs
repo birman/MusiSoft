@@ -16,26 +16,76 @@ namespace MusiSoft.Services.Impl
             this.userRepository = userRepository;
         }
 
-        public void AddUser(UserViewModel userViewModel)
+        public bool AddUser(UserViewModel userViewModel)
         {
+            bool saved = false;
+
+            var _user = userRepository.GetUserById(userViewModel.Id);
+
+            if ((_user == null))
+            {
+                var user = userViewModel.ModelToEntity();
+                userRepository.Add(user, true);
+                saved = true;
+            }
+
+            return saved;
+        }
+
+        public bool DeleteUser(int userId)
+        {
+            bool deleted = false;
+
+            var user = userRepository.GetUserById(userId);
+
+            if ((user != null))
+            {
+                userRepository.Delete(user, true);
+                deleted = true;
+            }
+
+            return deleted;
+        }
+
+        public bool EditUser(UserViewModel userViewModel)
+        {
+            bool edited = false;
+
             var user = userViewModel.ModelToEntity();
-            userRepository.Add(user, true);
+
+            if ((user != null) && (ExistUser(user.Id)))
+            {
+                userRepository.Edit(user, true);
+                edited = true;
+            }
+
+            return edited;
         }
 
-        public void DeleteUser(int userId)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void EditUser(UserViewModel userViewModel)
-        {
-            var user = userViewModel.ModelToEntity();
-            userRepository.Edit(user, true);
-        }
-
-        public IEnumerable<UserViewModel> Getusers()
+        public IEnumerable<UserViewModel> GetUsers()
         {
             return userRepository.FindAll<Users>().EntityToModel();
+        }
+
+        public UserViewModel GetUserById(int userId)
+        {
+            var user = userRepository.GetUserById(userId);
+
+            return user != null ? user.EntityToModel() : null;
+        }
+
+        private bool ExistUser(int userId)
+        {
+            bool existUser = false;
+            var user = userRepository.GetUserById(userId);
+
+            if (user != null)
+            {
+                userRepository.Detach(user);
+                existUser = true;
+            }
+
+            return existUser;
         }
     }
 }

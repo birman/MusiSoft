@@ -5,12 +5,14 @@ namespace MusiSoft.Services.Contract.Contract
 {
     public interface ICampaignService
     {
-        void AddCampaign(CampaignViewModel campaignViewModel);
+        bool AddCampaign(CampaignViewModel campaignViewModel);
 
-        void EditCampaign(CampaignViewModel campaignViewModel);
+        bool EditCampaign(CampaignViewModel campaignViewModel);
 
-        void DeleteCampaign(int campaignId);
+        bool DeleteCampaign(int campaignId);
 
         IEnumerable<CampaignViewModel> GetCampaigns();
+
+        CampaignViewModel GetCampaignById(int campaign);
     }
 }

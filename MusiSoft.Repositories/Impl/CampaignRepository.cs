@@ -10,5 +10,10 @@ namespace MusiSoft.Repositories.Impl
         {
             _context = dbContext;
         }
+
+        public Campaigns GetCampaignById(int campaignId)
+        {
+            return _context.Campaigns.Find(campaignId);
+        }
     }
 }
