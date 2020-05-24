@@ -231,6 +231,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CampaignController.cs" />
+    <Compile Include="Controllers\CampaignViewController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\CompanyViewController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
@@ -307,6 +308,11 @@
     <Content Include="Views\CompanyView\Edit.cshtml" />
     <Content Include="Views\CompanyView\Details.cshtml" />
     <Content Include="Views\CompanyView\Delete.cshtml" />
+    <Content Include="Views\CampaignView\Index.cshtml" />
+    <Content Include="Views\CampaignView\Details.cshtml" />
+    <Content Include="Views\CampaignView\Create.cshtml" />
+    <Content Include="Views\CampaignView\Edit.cshtml" />
+    <Content Include="Views\CampaignView\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
