@@ -237,6 +237,7 @@
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserViewController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -313,6 +314,11 @@
     <Content Include="Views\CampaignView\Create.cshtml" />
     <Content Include="Views\CampaignView\Edit.cshtml" />
     <Content Include="Views\CampaignView\Delete.cshtml" />
+    <Content Include="Views\UserView\Index.cshtml" />
+    <Content Include="Views\UserView\Details.cshtml" />
+    <Content Include="Views\UserView\Create.cshtml" />
+    <Content Include="Views\UserView\Edit.cshtml" />
+    <Content Include="Views\UserView\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
