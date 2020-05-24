@@ -235,6 +235,7 @@
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\CompanyViewController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\CustomerViewController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserViewController.cs" />
@@ -319,6 +320,11 @@
     <Content Include="Views\UserView\Create.cshtml" />
     <Content Include="Views\UserView\Edit.cshtml" />
     <Content Include="Views\UserView\Delete.cshtml" />
+    <Content Include="Views\CustomerView\Index.cshtml" />
+    <Content Include="Views\CustomerView\Details.cshtml" />
+    <Content Include="Views\CustomerView\Create.cshtml" />
+    <Content Include="Views\CustomerView\Delete.cshtml" />
+    <Content Include="Views\CustomerView\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
