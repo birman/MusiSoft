@@ -16,26 +16,76 @@ namespace MusiSoft.Services.Impl
             this.companyRepository = companyRepository;
         }
 
-        public void AddCompany(CompanyViewModel companyViewModel)
+        public bool AddCompany(CompanyViewModel companyViewModel)
         {
-            var company = companyViewModel.ModelToEntity();
-            companyRepository.Add(company, true);
+            bool saved = false;
+
+            var _company = companyRepository.GetCompanyById(companyViewModel.Id);
+
+            if ((_company == null))
+            {
+                var company = companyViewModel.ModelToEntity();
+                companyRepository.Add(company, true);
+                saved = true;
+            }
+
+            return saved;
         }
 
-        public void DeleteCompany(int ompanyId)
+        public bool DeleteCompany(int companyId)
         {
-            throw new System.NotImplementedException();
+            bool deleted = false;
+
+            var company = companyRepository.GetCompanyById(companyId);
+
+            if ((company != null))
+            {
+                companyRepository.Delete(company, true);
+                deleted = true;
+            }
+
+            return deleted;
         }
 
-        public void EditCompany(CompanyViewModel companyViewModel)
+        public bool EditCompany(CompanyViewModel companyViewModel)
         {
+            bool edited = false;
+
             var company = companyViewModel.ModelToEntity();
-            companyRepository.Edit(company, true);
+
+            if ((company != null) && (ExistCompany(company.Id)))
+            {
+                companyRepository.Edit(company, true);
+                edited = true;
+            }
+
+            return edited;
         }
 
         public IEnumerable<CompanyViewModel> GetCompanies()
         {
             return companyRepository.FindAll<Companies>().EntityToModel();
+        }
+
+        public CompanyViewModel GetCompanyById(int companyId)
+        {
+            var company = companyRepository.GetCompanyById(companyId);
+
+            return company != null ? company.EntityToModel() : null;
+        }
+
+        private bool ExistCompany(int companyId)
+        {
+            bool existCompany = false;
+            var company = companyRepository.GetCompanyById(companyId);
+
+            if (company != null)
+            {
+                companyRepository.Detach(company);
+                existCompany = true;
+            }
+
+            return existCompany;
         }
     }
 }

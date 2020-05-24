@@ -5,12 +5,14 @@ namespace MusiSoft.Services.Contract.Contract
 {
     public interface ICompanyService
     {
-        void AddCompany(CompanyViewModel companyViewModel);
+        bool AddCompany(CompanyViewModel companyViewModel);
 
-        void EditCompany(CompanyViewModel companyViewModel);
+        bool EditCompany(CompanyViewModel companyViewModel);
 
-        void DeleteCompany(int ompanyId);
+        bool DeleteCompany(int companyId);
 
         IEnumerable<CompanyViewModel> GetCompanies();
+
+        CompanyViewModel GetCompanyById(int companyId);
     }
 }

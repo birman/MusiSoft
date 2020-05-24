@@ -230,7 +230,11 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CampaignController.cs" />
+    <Compile Include="Controllers\CompanyController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -332,9 +336,17 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MusiSoft.Entities\MusiSoft.Entities.csproj">
+      <Project>{e798a850-5401-4e55-aef7-1db524d29b84}</Project>
+      <Name>MusiSoft.Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MusiSoft.Helpers\MusiSoft.Helpers.csproj">
       <Project>{4C1AB78A-F59F-4F20-8771-FDE6C1F69C01}</Project>
       <Name>MusiSoft.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MusiSoft.Services.Contract\MusiSoft.Services.Contract.csproj">
+      <Project>{E6E70280-D435-47F0-91A8-C2DA5640B99A}</Project>
+      <Name>MusiSoft.Services.Contract</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

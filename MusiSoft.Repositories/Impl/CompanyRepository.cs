@@ -10,5 +10,10 @@ namespace MusiSoft.Repositories.Impl
         {
             _context = dbContext;
         }
+
+        public Companies GetCompanyById(int companyId)
+        {
+            return _context.Companies.Find(companyId);
+        }
     }
 }

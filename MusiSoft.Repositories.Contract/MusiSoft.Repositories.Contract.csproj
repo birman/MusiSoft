@@ -49,5 +49,15 @@
     <Compile Include="Contract\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MusiSoft.Data.EF\MusiSoft.Data.EF.csproj">
+      <Project>{25A56990-5C44-49E1-9F49-016424FC59F2}</Project>
+      <Name>MusiSoft.Data.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MusiSoft.Entities\MusiSoft.Entities.csproj">
+      <Project>{E798A850-5401-4E55-AEF7-1DB524D29B84}</Project>
+      <Name>MusiSoft.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
