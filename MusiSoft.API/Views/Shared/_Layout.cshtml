@@ -24,7 +24,7 @@
                     @*<li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>*@
                     @*<li>@Html.ActionLink("Company", "Index", "CompanyView", new { area = "" }, null)</li>*@
 
-                    @if (User.Identity.IsAuthenticated)
+                    @*@if (User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Campaign", "Index", "CampaignView", new { area = "" }, null)</li>
                         <li>@Html.ActionLink("User", "Index", "UserView", new { area = "" }, null)</li>
@@ -34,9 +34,13 @@
                     @if (!User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Sign in", "Index", "LoginView")</li>
-                    }
+                    }*@
 
-
+                    <li>@Html.ActionLink("Campaign", "Index", "CampaignView", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("User", "Index", "UserView", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Customer", "Index", "CustomerView", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Sign out", "Logout", "LoginView")</li>
+                    <li>@Html.ActionLink("Sign in", "Index", "LoginView")</li>
 
 
                 </ul>

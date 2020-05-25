@@ -44,6 +44,11 @@ namespace MusiSoft.API.Controllers
         {
             try
             {
+                string companyId = (System.Web.HttpContext.Current.Session["companyId"] as string);
+                if (companyId != null)
+                {
+                    campaign.CompanyId = int.Parse(companyId);
+                }
                 campaignService.AddCampaign(campaign);
 
                 return RedirectToAction("Index");

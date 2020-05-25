@@ -34,7 +34,8 @@ namespace MusiSoft.API.Controllers
 
             if (_user != null)
             {
-                FormsAuthentication.SetAuthCookie(user.Name, false);
+                FormsAuthentication.SetAuthCookie(_user.Name, false);
+                Session["companyId"] = _user.CompanyId;
 
                 return RedirectToAction("LoginTwoFactorAuthenticator", "LoginView");
             }
