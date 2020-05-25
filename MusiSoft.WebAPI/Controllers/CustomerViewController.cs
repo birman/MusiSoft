@@ -1,6 +1,8 @@
 ﻿using MusiSoft.Entities;
 using MusiSoft.Helpers;
 using MusiSoft.Services.Contract.Contract;
+using System;
+using System.Configuration;
 using System.Web.Mvc;
 
 namespace MusiSoft.WebAPI.Controllers
@@ -12,7 +14,6 @@ namespace MusiSoft.WebAPI.Controllers
 
         public CustomerViewController() : this(DependencyFactory.Resolve<ICustomerService>())
         {
-
         }
 
         public CustomerViewController(ICustomerService customerService)
@@ -42,10 +43,14 @@ namespace MusiSoft.WebAPI.Controllers
 
         // POST: CustomerView/Create
         [HttpPost]
+        [System.Obsolete]
         public ActionResult Create(CustomerViewModel customer)
         {
             try
             {
+                var _company = ConfigurationSettings.AppSettings["company"];
+                customer.CompanyId = Int32.Parse(_company);
+
                 customerService.AddCustomer(customer);
 
                 return RedirectToAction("Index");
@@ -65,10 +70,14 @@ namespace MusiSoft.WebAPI.Controllers
 
         // POST: CustomerView/Edit/5
         [HttpPost]
+        [Obsolete]
         public ActionResult Edit(int id, CustomerViewModel customer)
         {
             try
             {
+                var _company = ConfigurationSettings.AppSettings["company"];
+                customer.CompanyId = Int32.Parse(_company);
+
                 customerService.EditCustomer(customer);
 
                 return RedirectToAction("Index");

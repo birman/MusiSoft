@@ -16,8 +16,8 @@ namespace MusiSoft.Mapper
                 Objective = campaign.Objective,
                 Description = campaign.Description,
                 MusicalGenreId = campaign.MusicalGenreId,
-                StartDate = campaign.StartDate,
-                EndDate = campaign.EndDate
+                StartDate = campaign.StartDate.Date,
+                EndDate = campaign.EndDate?.Date
             };
         }
 

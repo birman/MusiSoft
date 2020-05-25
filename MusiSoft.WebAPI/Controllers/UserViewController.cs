@@ -1,6 +1,8 @@
 ﻿using MusiSoft.Entities;
 using MusiSoft.Helpers;
 using MusiSoft.Services.Contract.Contract;
+using System;
+using System.Configuration;
 using System.Web.Mvc;
 
 namespace MusiSoft.WebAPI.Controllers
@@ -41,10 +43,13 @@ namespace MusiSoft.WebAPI.Controllers
 
         // POST: UserView/Create
         [HttpPost]
+        [Obsolete]
         public ActionResult Create(UserViewModel user)
         {
             try
             {
+                var _company = ConfigurationSettings.AppSettings["company"];
+                user.CompanyId = Int32.Parse(_company);
                 userService.AddUser(user);
 
                 return RedirectToAction("Index");
@@ -64,10 +69,13 @@ namespace MusiSoft.WebAPI.Controllers
 
         // POST: UserView/Edit/5
         [HttpPost]
+        [Obsolete]
         public ActionResult Edit(int id, UserViewModel user)
         {
             try
             {
+                var _company = ConfigurationSettings.AppSettings["company"];
+                user.CompanyId = Int32.Parse(_company);
                 userService.EditUser(user);
 
                 return RedirectToAction("Index");

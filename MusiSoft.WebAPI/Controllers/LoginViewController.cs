@@ -2,6 +2,7 @@
 using MusiSoft.Entities;
 using MusiSoft.Helpers;
 using MusiSoft.Services.Contract.Contract;
+using System.Configuration;
 using System.Web.Mvc;
 using System.Web.Security;
 
@@ -28,14 +29,16 @@ namespace MusiSoft.WebAPI.Controllers
         }
 
         [HttpPost]
+        [System.Obsolete]
         public ActionResult Index(UserViewModel user)
         {
             var _user = userService.GetUser(user);
 
             if (_user != null)
             {
-                FormsAuthentication.SetAuthCookie(_user.Name, false);
-                Session["companyId"] = _user.CompanyId;
+                ConfigurationSettings.AppSettings["company"] = _user.CompanyId.ToString();
+                //FormsAuthentication.SetAuthCookie(_user.Name, false);
+                TempData["SetAuthCookie"] = _user.Name;
 
                 return RedirectToAction("LoginTwoFactorAuthenticator", "LoginView");
             }
@@ -53,7 +56,7 @@ namespace MusiSoft.WebAPI.Controllers
             return RedirectToAction("Index");
         }
 
-        [Authorize]
+        //[Authorize]
         public ActionResult LoginTwoFactorAuthenticator()
         {
             var authenticator = new TwoFactorAuthenticator();
@@ -64,15 +67,18 @@ namespace MusiSoft.WebAPI.Controllers
             return View();
         }
 
-        [Authorize]
+        //[Authorize]
         public ActionResult ValidateTwoFactorAuthenticator()
         {
             var token = Request["token"];
             var authenticator = new TwoFactorAuthenticator();
             var isValido = authenticator.ValidateTwoFactorPIN(key, token);
-
-            if (isValido)
+            var userName = TempData["SetAuthCookie"];
+            if (isValido && userName != null)
             {
+                
+                FormsAuthentication.SetAuthCookie(userName.ToString(), false);
+
                 return RedirectToAction("Index", "Home");
             }
             else

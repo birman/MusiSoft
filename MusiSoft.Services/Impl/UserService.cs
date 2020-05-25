@@ -3,6 +3,7 @@ using MusiSoft.Entities;
 using MusiSoft.Mapper;
 using MusiSoft.Repositories.Contract.Contract;
 using MusiSoft.Services.Contract.Contract;
+using System;
 using System.Collections.Generic;
 
 namespace MusiSoft.Services.Impl
@@ -16,6 +17,7 @@ namespace MusiSoft.Services.Impl
             this.userRepository = userRepository;
         }
 
+        [System.Obsolete]
         public bool AddUser(UserViewModel userViewModel)
         {
             bool saved = false;
@@ -25,6 +27,8 @@ namespace MusiSoft.Services.Impl
             if ((_user == null))
             {
                 var user = userViewModel.ModelToEntity();
+                var _company = System.Configuration.ConfigurationSettings.AppSettings["company"];
+                user.CompanyId = Int32.Parse(_company);
                 userRepository.Add(user, true);
                 saved = true;
             }
@@ -47,6 +51,7 @@ namespace MusiSoft.Services.Impl
             return deleted;
         }
 
+        [Obsolete]
         public bool EditUser(UserViewModel userViewModel)
         {
             bool edited = false;
@@ -55,6 +60,8 @@ namespace MusiSoft.Services.Impl
 
             if ((user != null) && (ExistUser(user.Id)))
             {
+                var _company = System.Configuration.ConfigurationSettings.AppSettings["company"];
+                user.CompanyId = Int32.Parse(_company);
                 userRepository.Edit(user, true);
                 edited = true;
             }
@@ -88,10 +95,9 @@ namespace MusiSoft.Services.Impl
             return existUser;
         }
 
-
         public UserViewModel GetUser(UserViewModel userViewModel)
         {
-           var user = userRepository.GetUserByNickNameAndPassword(userViewModel.Nickname, userViewModel.Password);
+            var user = userRepository.GetUserByNickNameAndPassword(userViewModel.Nickname, userViewModel.Password);
 
             return user != null ? user.EntityToModel() : null;
         }

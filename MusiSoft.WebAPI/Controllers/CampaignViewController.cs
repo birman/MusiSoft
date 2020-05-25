@@ -1,6 +1,8 @@
 ﻿using MusiSoft.Entities;
 using MusiSoft.Helpers;
 using MusiSoft.Services.Contract.Contract;
+using System;
+using System.Configuration;
 using System.Web.Mvc;
 
 namespace MusiSoft.WebAPI.Controllers
@@ -40,15 +42,14 @@ namespace MusiSoft.WebAPI.Controllers
 
         // POST: CampaignView/Create
         [HttpPost]
+        [Obsolete]
         public ActionResult Create(CampaignViewModel campaign)
         {
             try
             {
-                string companyId = (System.Web.HttpContext.Current.Session["companyId"] as string);
-                if (companyId != null)
-                {
-                    campaign.CompanyId = int.Parse(companyId);
-                }
+                var _company = ConfigurationSettings.AppSettings["company"];
+                campaign.CompanyId = Int32.Parse(_company);
+
                 campaignService.AddCampaign(campaign);
 
                 return RedirectToAction("Index");
@@ -68,10 +69,13 @@ namespace MusiSoft.WebAPI.Controllers
 
         // POST: CampaignView/Edit/5
         [HttpPost]
+        [Obsolete]
         public ActionResult Edit(int id, CampaignViewModel campaign)
         {
             try
             {
+                var _company = ConfigurationSettings.AppSettings["company"];
+                campaign.CompanyId = Int32.Parse(_company);
                 campaignService.EditCampaign(campaign);
 
                 return RedirectToAction("Index");

@@ -6,6 +6,7 @@ using System.Web.Http.Description;
 
 namespace MusiSoft.WebAPI.Controllers
 {
+    [Authorize]
     public class CompanyController : ApiController
     {
         private ICompanyService companyService;
