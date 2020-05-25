@@ -14,5 +14,7 @@ namespace MusiSoft.Services.Contract.Contract
         IEnumerable<UserViewModel> GetUsers();
 
         UserViewModel GetUserById(int userId);
+
+        UserViewModel GetUser(UserViewModel userViewModel);
     }
 }

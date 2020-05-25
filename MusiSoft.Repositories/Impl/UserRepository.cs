@@ -1,6 +1,7 @@
 ﻿using MusiSoft.Data.EF.Context;
 using MusiSoft.Repositories.Base;
 using MusiSoft.Repositories.Contract.Contract;
+using System.Linq;
 
 namespace MusiSoft.Repositories.Impl
 {
@@ -14,6 +15,11 @@ namespace MusiSoft.Repositories.Impl
         public Users GetUserById(int userId)
         {
             return _context.Users.Find(userId);
+        }
+
+        public Users GetUserByNickNameAndPassword(string nickName, string password)
+        {
+            return _context.Users.Where(x => x.Nickname == nickName && x.Password == password).FirstOrDefault();
         }
     }
 }

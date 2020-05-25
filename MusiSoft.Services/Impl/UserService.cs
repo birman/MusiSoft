@@ -87,5 +87,13 @@ namespace MusiSoft.Services.Impl
 
             return existUser;
         }
+
+
+        public UserViewModel GetUser(UserViewModel userViewModel)
+        {
+           var user = userRepository.GetUserByNickNameAndPassword(userViewModel.Nickname, userViewModel.Password);
+
+            return user != null ? user.EntityToModel() : null;
+        }
     }
 }
