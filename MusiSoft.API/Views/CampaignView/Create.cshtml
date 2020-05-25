@@ -50,8 +50,42 @@
         <div class="form-group">
             @Html.LabelFor(model => model.MusicalGenreId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.MusicalGenreId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MusicalGenreId, "", new { @class = "text-danger" })
+                @{
+                    List<SelectListItem> listItems = new List<SelectListItem>();
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Salsa",
+                        Value = "1",
+                        Selected = true
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Vallenato",
+                        Value = "2"
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Reggueton",
+                        Value = "3"
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Balada",
+                        Value = "4"
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "ELectronica",
+                        Value = "5"
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Cumbia",
+                        Value = "6"
+                    });
+                }
+
+                @Html.DropDownList("MusicalGenreId", listItems, new { @class = "form-control" })
             </div>
         </div>
 
